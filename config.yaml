@@ -1,0 +1,24 @@
+---
+id: RubyKaigiTakeout2021
+base_name: PRK-Firmware--Keyboard-is-Essentially-Ruby
+tags:
+  - PicoRuby
+  - keyboard
+  - Raspberry
+presentation_date: '2021-09-10'
+presentation_start_time: 11:00
+presentation_end_time: 11:25
+version: 2021.9.10.0
+licenses: []
+slideshare_id: 
+speaker_deck_id: 
+ustream_id: 
+vimeo_id: 
+youtube_id: 
+author:
+  markup_language: :rd
+  name: HASUMI Hitoshi
+  email: hasumikin@gmail.com
+  rubygems_user: hasumikin
+  slideshare_user: 
+  speaker_deck_user: 

@@ -1,0 +1,398 @@
+= PRK Firmware
+
+: subtitle
+   Keyboard is\nEssentially Ruby
+: author
+   Hitoshi HASUMI
+: place
+   RubyKaigi Takeout 2021  |  Sep 10th
+: allotted-time
+   25m
+: theme
+   theme
+
+= Acknowledgement
+  # image
+  # src = images/kakutani.png
+  # relative_height = 103
+  # relative_margin_top = 0
+
+= Acknowledgement
+  # blockquote
+  # title = YOU COULD SAY DIY-KEYBOARD IS ESSENTIALLY RUBY
+  (('tag:center'))\n\n“You are able to build ((*Ruby*)) by yourself”\n\n\n
+
+= Acknowledgement
+  # blockquote
+  # title = YOU COULD SAY DIY-KEYBOARD IS ESSENTIALLY RUBY
+  (('tag:center'))\n\n“You are able to build a ((*keyboard*)) by yourself”\n\n\n
+
+= Acknowledgement
+  # blockquote
+  # title = YOU COULD SAY DIY-KEYBOARD IS ESSENTIALLY RUBY
+  (('tag:center'))\n“YOU COULD SAY\nDIY-KEYBOARD IS\nESSENTIALLY ((*RUBY*))”\n\n
+
+= Exactly one year ago
+  # image
+  # src = images/kakutani_1.jpg
+  # relative_height = 103
+  # relative_margin_top = 0
+
+= Exactly one year ago
+  # image
+  # src = images/kakutani_2.jpg
+  # relative_height = 103
+  # relative_margin_top = 0
+
+= Keyboard firmware
+* QMK Firmware ... C
+* KMK Firmware ... Python
+* PRK Firmware ... Ruby
+
+= Keyboard firmware
+  # image
+  # src = images/qmk_kmk_prk.png
+  # relative_height = 103
+  # relative_margin_top = 0
+
+= Keyboard firmware ⭐⭐⭐⭐⭐⭐⭐
+  # image
+  # src = images/qmk_kmk_prk_2.png
+  # relative_height = 103
+  # relative_margin_top = 0
+
+= PRK Firmware - How to start
+  * Buy a DIY Keyboard kit
+    * Which uses ((*Pro Micro*))
+  * Pro Micro?
+    * Arduino compatible board
+  * PRK Firmware ((*doesn't*)) work on\n"normal" Pro Micro (ATMega 32U4)
+
+  # image
+  # src = images/promicro.jpg
+  # align = right
+  # relative-height = 81
+  # relative_margin_left = 10
+
+(('tag:right'))
+(('tag:xx-small:https://www.switch-science.com/catalog/3914/'))
+
+= PRK Firmware - How to start
+  * Instead, choose\n((*SPARKFUN PRO MICRO - RP2040*))\n((*[model no. DEV-17717]*))
+
+  # image
+  # src = images/promicro_rp2040.jpg
+  # align = right
+  # relative-height = 85
+  # relative_margin_left = 10
+
+(('tag:right'))\n\n\n
+(('tag:xx-small:https://www.sparkfun.com/products/17717'))
+
+= PRK Firmware - How to start
+  * RP2040?
+    * "Raspberry Silicon"
+    * Implemented on Raspberry Pi Pico
+    * The target chip of ((*PRK Firmware*))
+
+  # image
+  # src = images/rpi_pico.jpg
+  # align = right
+  # relative-height = 100
+  # relative_margin_left = 2
+
+(('tag:right'))\n\n
+(('tag:xx-small:https://pc.watch.impress.co.jp/docs/news/1301670.html'))
+
+= PRK Firmware - How to start
+  * Troubleshoot of DEV-17717
+    * Shortage of conthrough's height
+      * Use XB-3-6-6P on akizukidenshi.com
+    * Logic level (depending on PCB)
+      * Pro Micro RP2040 -> 3.3V
+      * Pro Micro ATMega -> 5V
+      * Just avoid "Gherkin Pro Micro ver."
+
+  # image
+  # src = images/shortage.png
+  # align = right
+  # relative-height = 90
+  # relative_margin_left = 4
+
+= PRK Firmware - How to start
+  * Doesn't make sense? Ask on Twitter
+    * @takkanm
+    * @swan_match
+    * @kakutani
+    * @hasumikin (me), etc.
+  * Join #keyboard in ruby-jp Slack
+
+= PRK Firmware - How to start
+  * Prerequisite
+    * github.com/raspberrypi/pico-sdk
+    * That's it!
+
+= e.g.) picoruby/prk_pipigherkin
+  * Gherkin for\nthe Raspberry Pi Pico
+    * PCB available\non talpkeyboard.net
+    * Easy to explain but\nhard for newbies to build
+
+  # image
+  # src = images/pipi_gherkin.jpg
+  # align = right
+  # relative-height = 85
+  # relative_margin_left = 8
+
+(('tag:right'))
+(('tag:xx-small:https://www.40percent.club/2021/02/pipi-gherkin.html'))
+
+= e.g.) prk_pipigherkin/keymap.rb
+  # enscript ruby
+  # Initialize Keyboard
+  kbd = Keyboard.new
+  # Initialize GPIO pins
+  kbd.init_pins(
+    [ 12, 11, 10, 9, 8 ], # row0, row1,... respectively
+    [ 7, 6, 5, 4, 3, 2 ]  # col0, col1,... respectively
+  )
+  # Default keymap
+  kbd.add_layer :default, %i(
+    KC_Q   KC_W   KC_E   KC_R   KC_T      KC_Y      KC_U   KC_I   KC_O   KC_P
+    KC_A   KC_S   KC_D   KC_F   KC_G      KC_H      KC_J   KC_K   KC_L   KC_BSPACE
+    Z_LSFT X_LGUI C_LALT V_LCTL SPC_LOWER ENT_RAISE B_RCTL N_RALT M_RGUI UNDS_RSFT
+  )
+  # Mode keys
+  kbd.define_mode_key :Z_LSFT,    [ :KC_Z,     :KC_LSFT, 150, 150 ]
+  # ...
+  kbd.define_mode_key :UNDS_RSFT, [ :KC_UNDS,  :KC_RSFT, 150, 150 ]
+  kbd.define_mode_key :ENT_RAISE, [ :KC_ENTER, :raise,   150, 150 ]
+  kbd.define_mode_key :SPC_LOWER, [ :KC_SPACE, :lower,   150, 150 ]
+
+= e.g.) prk_pipigherkin/keymap.rb
+  # enscript ruby
+  kbd.define_mode_key :UNDS_RSFT, [ :KC_UNDS,  :KC_RSFT, 150, 150 ]
+  kbd.define_mode_key :ENT_RAISE, [ :KC_ENTER, :raise,   150, 150 ]
+  kbd.define_mode_key :SPC_LOWER, [ :KC_SPACE, :lower,   150, 150 ]
+
+= e.g.) picoruby/prk_crkbd
+
+= e.g.) prk_crkbd/keymap.rb
+* TODO RGB
+
+= e.g.) prk_crkbd/keymap.rb
+\n
+If you wanna input "((*;*))" with SHIFT and "((*:*))" without SHIFT,
+
+  # enscript ruby
+  kbd.before_report do
+    kbd.invert_sft if kbd.keys_include?(:KC_SCOLON)
+  end
+
+(('tag:center'))
+You no longer need to modify .vimrc
+
+= You can write invert_ctl in keymap.rb
+  # enscript ruby
+  class Keyboard
+    def invert_ctl
+      #      KC_LCTL: 0b00000001
+      #      KC_LSFT: 0b00000010
+      #      KC_LALT: 0b00000100
+      #      KC_LGUI: 0b00001000
+      #      KC_RCTL: 0b00010000
+      #      KC_RSFT: 0b00100000
+      #      KC_RALT: 0b01000000
+      #      KC_RGUI: 0b10000000
+      if (@modifier & 0b00010001) > 0
+         @modifier &= 0b11101110
+      else
+         @modifier |= 0b00000001
+      end
+    end
+  end
+  kbd.before_report do
+    kbd.invert_ctl if kbd.keys_include?(:KC_V)
+  end
+
+= PRK Firmware Under a Microscope
+* PicoRuby
+  * PicoRuby compiler + mruby/c VM
+
+= PRK Firmware Under a Microscope
+* Static type check by "steep" gem
+  * `bundle exec steep check` in build process
+  * Super helpful to avoid install an executable\nthat includes a trivial mistake into\nan actual device
+
+= ((* *))
+(('tag:center'))\n\n\n
+(('tag:large:By the way,'))
+== prop
+: hide-title
+   true
+
+= ((* *))
+(('tag:center'))\n\n
+(('tag:large:What do you think is'))\n
+(('tag:large:the No.1 text editor?'))
+== prop
+: hide-title
+   true
+
+= ((* *))
+(('tag:center'))\n\n\n
+(('tag:large:vim?'))
+== prop
+: hide-title
+   true
+
+= ((* *))
+(('tag:center'))\n\n\n
+(('tag:large:emacs?'))
+== prop
+: hide-title
+   true
+
+= ((* *))
+(('tag:center'))\n\n\n
+(('tag:large:textbringer?'))
+== prop
+: hide-title
+   true
+
+= ((* *))
+  # image
+  # src = images/matamata.png
+  # relative_height = 80
+  # relative_margin_top = 5
+  # relative_margin_left = -9
+== prop
+: hide-title
+   true
+
+= ((* *))
+\n\n\n\n
+Copyright © Microsoft
+  # image
+  # src = images/Notepad.png
+  # align = right
+  # relative-height = 100
+  # relative_margin_left = 10
+== prop
+: hide-title
+   true
+
+= ((* *))
+\n\n\n\n
+Copyright © Apple Inc.
+  # image
+  # src = images/textedit.png
+  # align = right
+  # relative-height = 100
+  # relative_margin_left = 10
+== prop
+: hide-title
+   true
+
+= Fibonacci
+(('tag:center'))\n\n\n
+(DEMO)
+== prop
+: hide-title
+   true
+
+= Fibonacci
+  # enscript c
+  1
+  1
+  2
+  3
+  5
+  8
+  13
+  21
+  34
+  55
+  89
+  144
+  233
+  377
+  610
+
+= Fibonacci in keymap.rb
+  # enscript ruby
+  class Fibonacci
+    def initialize
+      @a = 0 ; @b = 1
+    end
+    def take
+      result = @a + @b
+      @a = @b
+      @b = result
+    end
+  end
+  fibonacci = Fibonacci.new
+  kbd.define_mode_key :FIBONACCI,
+                      [ Proc.new { kbd.macro fibonacci.take },
+                      nil, nil, nil ]
+
+= PicoRuby Compiler on Board
+(('tag:center'))\n\n
+(DEMO)
+
+= PicoRuby Compiler on Board
+* TODO eval
+
+= Conclusion
+* PRK Firmware is the world's\nfirst keyboard firmware in Ruby
+* You can extend your keyboard by Ruby\nas you do in shell
+* You can code Ruby on Rails application\nwith a keyboard that runs on Ruby
+
+= ((* *))
+(('tag:center'))\n\n
+(('tag:xx-large:So,'))\n
+== prop
+: hide-title
+   true
+
+= ((* *))
+(('tag:center'))\n\n
+(('tag:xx-large:You could say'))\n
+== prop
+: hide-title
+   true
+
+= ((* *))
+(('tag:center'))
+(('tag:xx-large:Keyboard is'))\n
+(('tag:xx-large:Essentially'))\n
+(('tag:xx-large:Ruby'))
+== prop
+: hide-title
+   true
+
+= Future work
+* Compiling `keymap.rb` on the fly
+  * Drag and drop like CircuitPython
+  * pico-sdk will be no longer needed
+  * Will solve even the "conthrough issue"
+
+= Future work
+* PicoRuby compiler as an alternative\ncompiler of mruby
+* IRB on microcontroller
+
+= ((* *))
+(('tag:center'))
+(('tag:xx-large:See you in'))\n
+(('tag:xx-large:RubyConf'))\n
+(('tag:xx-large:2021'))
+== prop
+: hide-title
+   true
+
+= ((* *))
+(('tag:center'))\n\n
+(('tag:xx-large:Thank you!!!q'))\n
+== prop
+: hide-title
+   true
+
