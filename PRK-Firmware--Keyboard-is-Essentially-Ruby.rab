@@ -147,7 +147,7 @@ https://www.raspberrypi.org/documentation/rp2040/getting-started
 = PRK Firmware - How to start [software]
   # image
   # src = images/drag_and_drop_1.png
-  # relative-height = 100
+  # relative-height = 95
 
 = PRK Firmware - How to start [software]
   # image
@@ -302,11 +302,11 @@ You no longer need to modify .vimrc
     kbd.invert_ctl if kbd.keys_include?(:KC_V)
   end
 
-= Fibonacci
+= Fibonacci number
 (('tag:center'))\n\n\n
 (DEMO)
 
-= Fibonacci
+= Fibonacci number
   # enscript c
   1
   2
@@ -341,6 +341,29 @@ You no longer need to modify .vimrc
                       [ Proc.new { kbd.macro fibonacci.take },
                       :KC_NO, 300, nil ]
 
+= Password generator
+  # enscript ruby
+  class Password
+    def initialize
+      @c = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_!@#$%^&*()=-+/[]{}<>'
+    end
+    def generate
+      unless @srand
+        srand(board_millis) # generate rand()'s seed by board_millis
+        @srand = true
+      end
+      password = ""
+      while true
+        i = rand % 100
+        password << @c[i].to_s
+        break if password.length == 8
+      end
+      return password
+    end
+  end
+  password = Password.new
+  kbd.define_mode_key :PASSWD, [ Proc.new { kbd.macro password.generate, [] }, :KC_NO, 300, nil ]
+
 = Technology behind PRK Firmware
   * Static type check by "steep" gem
     * Super helpful to notice a trivial mistake before\ninstalling an executable into an actual Pro Micro
@@ -369,7 +392,7 @@ You no longer need to modify .vimrc
   * Compiling `keymap.rb` on the fly
     * ((*Drag and drop*)) keymap.rb\n(like CircuitPython)
     * pico-sdk will be ((*no longer*)) needed
-    * Will solve even the\n((*"boot button issue"*)) 🎊
+    * Will solve even the\n((*"boot button issue"*)) 💯
 
   # image
   # src = images/drag_and_drop_2.png
@@ -408,6 +431,13 @@ the No.1 text editor?*))
 = ((* *))
 (('tag:center'))\n\n\n
 (('tag:large:emacs?'))
+== prop
+: hide-title
+   true
+
+= ((* *))
+(('tag:center'))\n\n\n
+(('tag:large:VSCode?'))
 == prop
 : hide-title
    true

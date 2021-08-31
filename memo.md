@@ -7,7 +7,7 @@ gem
 Steep
 Shell
 
-## コンピュータ用語。これらもそのまま発話すればOK
+## これらもそのまま発話すればOK
 
 Rubygems（ルビージェムズ）
 vim（ヴィム）
@@ -23,12 +23,15 @@ CUI（シーユーアイ）
 （）
 （）
 
-## 適切な翻訳を知っておく必要のある言葉たち
+## 適切な翻訳がある言葉たち
 
-ラズパイ -> Raspberry Pi（ラズベリーパイ）
-拡張子 -> extension
-マイコン -> microcontroller
-（Windowsアプリの）メモ帳 -> notepad.exe（ノートパッドエグゼ）
+（スライドには書かれていませんが、口頭でしゃべります）
+
 （キーボードが）「割れてる」やつ -> Split type
-
+ラズパイ -> Raspberry Pi（ラズベリーパイ）
+ラズパイピコ -> Raspberry Pi Pico（ラズベリーパイピコ）
+拡張子 -> Extension
+マイコン -> Microcontroller
+（Windowsアプリの）メモ帳 -> notepad.exe（ノートパッドエグゼ）
+疑似乱数発生器 -> Pseudo random number generator
 
