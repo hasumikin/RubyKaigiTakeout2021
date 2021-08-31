@@ -117,8 +117,8 @@
   # enscript bash
   $ git clone --recursive https://github.com/picoruby/prk_firmware.git
   $ cd prk_firmware/keyboards
-  $ git clone https://github.com/picoruby/prk_crkbd.git
-  $ cd prk_crkbd/build
+  $ git clone https://github.com/picoruby/prk_meishi2.git
+  $ cd prk_meishi2/build
   $ cmake ../../..    # ../../../CMakeLists.txt
   $ make
   $ ls -l prk_firmware.*
@@ -232,9 +232,9 @@ https://www.raspberrypi.org/documentation/rp2040/getting-started
   # Mode keys
   kbd.define_mode_key :Z_LSFT,    [ :KC_Z,     :KC_LSFT, 150, 150 ]
   # ...
-  kbd.define_mode_key :UNDS_RSFT, [ :KC_UNDS,  :KC_RSFT, 150, 150 ]
+  kbd.define_mode_key :UNDS_RSFT, [ :KC_UNDS,  :KC_RSFT, 200, 150 ]
   kbd.define_mode_key :ENT_RAISE, [ :KC_ENTER, :raise,   150, 150 ]
-  kbd.define_mode_key :SPC_LOWER, [ :KC_SPACE, :lower,   150, 150 ]
+  kbd.define_mode_key :SPC_LOWER, [ :KC_SPACE, :lower,   300, 250 ]
 
 = e.g.) prk_pipigherkin/keymap.rb
   kbd.add_layer :raise, %i(
@@ -255,7 +255,7 @@ https://www.raspberrypi.org/documentation/rp2040/getting-started
 
 = e.g.) prk_crkbd/keymap.rb
   # enscript ruby
-  #
+
   kbd = Keyboard.new
   # (init_pins, add_layer etc., then)
   rgb = RGB.new(
@@ -269,7 +269,7 @@ https://www.raspberrypi.org/documentation/rp2040/getting-started
 
 = e.g.) prk_crkbd/keymap.rb
 \n
-If you wanna input "((*;*))" with SHIFT and "((*:*))" without SHIFT,
+If you wanna input ((*";"*)) with SHIFT and ((*":"*)) without SHIFT,
 
   # enscript ruby
   kbd.before_report do
@@ -283,11 +283,11 @@ You no longer need to modify .vimrc
   # enscript ruby
   class Keyboard
     def invert_ctl
-      #      KC_LCTL: 0b00000001
+      #      KC_LCTL: 0b00000001 👈
       #      KC_LSFT: 0b00000010
       #      KC_LALT: 0b00000100
       #      KC_LGUI: 0b00001000
-      #      KC_RCTL: 0b00010000
+      #      KC_RCTL: 0b00010000 👈
       #      KC_RSFT: 0b00100000
       #      KC_RALT: 0b01000000
       #      KC_RGUI: 0b10000000
@@ -327,9 +327,9 @@ You no longer need to modify .vimrc
   # enscript ruby
   class Fibonacci
     def initialize
-      # (Ommitting F0 and F1)
       @a = 0 ; @b = 1
     end
+    # Omits F0 and F1
     def take
       result = @a + @b
       @a = @b

@@ -14,8 +14,8 @@
 @default_headline_line_width = 8
 @default_headline_line_expand = false
 
-set_graffiti_color "#FF2B22"
-set_graffiti_line_width 10
+set_graffiti_color "blue"
+set_graffiti_line_width 8
 
 #@table_frame_color = "#ffffff"
 #@table_fill_color = "#0f0428"
@@ -23,6 +23,7 @@ set_graffiti_line_width 10
 #@table_body_fill_color = "#3f3468"
 #@table_head_frame_color = "#ffffff"
 #@table_head_fill_color = "#rf0428"
+
 
 @preformatted_fill_color = '#ebe0ce'
 # @preformatted_centering = true
