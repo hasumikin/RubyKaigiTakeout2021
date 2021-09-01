@@ -7,26 +7,27 @@ gem
 Steep
 Shell
 
-## これらもそのまま発話すればOK
+##そのまま発話すればOKな固有名詞
 
 Rubygems（ルビージェムズ）
 vim（ヴィム）
 emacs（イーマクス）
-textbringer（テクストブリンガー）
+textbringer（テクストブリンガ）
 Git（ギット）
 GitHub（ギットハブ）
 git clone（ギットクローン）
-HID（エイチアイディー）
+HID（エイチアイディ）
 GUI（ジーユーアイ）
 CUI（シーユーアイ）
-（）
-（）
+IRB（アイアールビー）
+GPIO（ジーピーアイオー）
 （）
 
 ## 適切な翻訳がある言葉たち
 
 （スライドには書かれていませんが、口頭でしゃべります）
 
+角谷さん -> Mr. Kakutani
 （キーボードが）「割れてる」やつ -> Split type
 ラズパイ -> Raspberry Pi（ラズベリーパイ）
 ラズパイピコ -> Raspberry Pi Pico（ラズベリーパイピコ）

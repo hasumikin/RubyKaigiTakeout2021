@@ -1,7 +1,7 @@
 = PRK Firmware
 
 : subtitle
-   Keyboard is\nEssentially Ruby
+   Keyboard is\nEssentially ((*Ruby*))
 : author
    Hitoshi HASUMI
 : place
@@ -47,8 +47,8 @@
 = Keyboard firmware ... language
 * QMK Firmware ... C
 * KMK Firmware ... Python
-* PRK Firmware ... Ruby
-* If you want GUI (extendibility?)
+* PRK Firmware ... ((*Ruby*))
+* If you want GUI
   * VIA, REMAP, Kiibohd Firmware
 
 = Keyboard firmware ... repository
@@ -131,7 +131,7 @@
 
 = PRK Firmware - How to start [software]
   * Connect USB cable while\npressing "boot button"
-  * RPI-RP2 will be mounted, then
+  * RPI-RP2 will be mounted\nas a storage, then
 
   # image
   # align = right
@@ -159,7 +159,7 @@ https://www.raspberrypi.org/documentation/rp2040/getting-started
     * Pro Micro RP2040 -> 3.3V
     * Pro Micro ATMega -> 5V
     * Just avoid "Gherkin Pro Micro ver."
-  * Shortage of conthrough's height\nif you build an "upside down" keyboard
+  * Shortage of conthrough's height\nif you build an ((*"upside down"*)) type
     * Use XB-3-6-6P on akizukidenshi.com
 
   # image
@@ -169,7 +169,7 @@ https://www.raspberrypi.org/documentation/rp2040/getting-started
   # relative_margin_left = 9
 
 = Troubleshooting of Pro Micro RP2040
-  * You can't push "boot button"\non an"upside down" keyboard
+  * You can't push "boot button"\nif it's "upside down"
     * Have to detach Pro Micro\nevery time flashing a firmware 😫
 
   # image
@@ -179,7 +179,7 @@ https://www.raspberrypi.org/documentation/rp2040/getting-started
   # relative_margin_left = 11
 
 = Troubleshooting of Pro Micro RP2040
-  * You can't push "boot button"\non an"upside down" keyboard
+  * You can't push "boot button"\nif it's "upside down"
     * Have to detach Pro Micro\nevery time flashing a firmware 😫
 
   # image
@@ -197,12 +197,12 @@ https://www.raspberrypi.org/documentation/rp2040/getting-started
     * @swan_match
     * @kakutani
     * @hasumikin (me), etc.
-  * Join #keyboard in ruby-jp Slack
+  * Join #keyboard in ((*ruby-jp*)) Slack
 
 = e.g.) picoruby/prk_pipigherkin
   * Gherkin for\nthe Raspberry Pi Pico
     * PCB available\non talpkeyboard.net
-    * Easy to explain but\nhard for newbies to build
+    * Easy to explain but\n((*hard for newbies*)) to build
 
   # image
   # src = images/pipi_gherkin.jpg
@@ -341,7 +341,7 @@ You no longer need to modify .vimrc
                       [ Proc.new { kbd.macro fibonacci.take },
                       :KC_NO, 300, nil ]
 
-= Password generator
+= Password generator in keymap.rb
   # enscript ruby
   class Password
     def initialize
@@ -365,7 +365,7 @@ You no longer need to modify .vimrc
   kbd.define_mode_key :PASSWD, [ Proc.new { kbd.macro password.generate, [] }, :KC_NO, 300, nil ]
 
 = Technology behind PRK Firmware
-  * Static type check by "steep" gem
+  * Static type check by ((*"steep"*)) gem
     * Super helpful to notice a trivial mistake before\ninstalling an executable into an actual Pro Micro
 
   $ cd keyboard/prk_crkbd/build ; make
@@ -379,6 +379,13 @@ You no longer need to modify .vimrc
   # src = images/architecture_1.png
   # relative_height = 100
   # relative_margin_top = -4
+
+= Technology behind PRK Firmware
+  * Mutitasking of mruby/c VM
+  # image
+  # src = images/Multitasking.png
+  # relative_height = 110
+  # relative_margin_top = -8
 
 = Technology behind PRK Firmware
   * PicoRuby
@@ -399,11 +406,6 @@ You no longer need to modify .vimrc
   # align = right
   # relative-height = 100
   # relative_margin_left = 3
-
-= Future work
-* ((*IRB*)) on microcontroller
-* `picoruby` in ((*ruby-build*))
-* PicoRuby compiler (((*picorbc*))) as\nan alternative compiler of mruby
 
 = ((* *))
 (('tag:center'))\n\n\n
@@ -488,7 +490,18 @@ Copyright © Apple Inc.
 (DEMO)
 
 = PicoRuby Compiler on Board
-* TODO eval
+  * ((*Sandbox*)) task is never freed!
+  # image
+  # src = images/Multitasking.png
+  # relative_height = 110
+  # relative_margin_top = -8
+
+= PicoRuby Compiler on Board
+  * ((*Sandbox*)) task is never freed!
+  # image
+  # src = images/Multitasking_sandbox.png
+  # relative_height = 110
+  # relative_margin_top = -8
 
 = ((* *))
 (('tag:center'))\n
@@ -518,8 +531,7 @@ Essentially\n
 
 = Conclusion
 * PRK Firmware is ((*the world's\nfirst*)) keyboard firmware in Ruby
-* ((*`keymap.rb`*)) is the only thing\nyou're gonna deal with
-* You can extend your keyboard by\n((*Ruby*))
+* You can not only configure\nbut also extend your keyboard\nby writing ((*`keymap.rb`*)) in ((*Ruby*))
 
 = ((* *))
 (('tag:center'))
