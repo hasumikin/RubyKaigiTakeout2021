@@ -68,7 +68,7 @@
     * Which uses ((*Pro Micro*))
   * Pro Micro?
     * Arduino compatible board
-  * PRK Firmware ((*doesn't*)) work on\n"normal" Pro Micro (ATMega 32U4)
+  * PRK Firmware ((*doesn't*)) work on\n"normal" Pro Micro (AVR processor)
 
   # image
   # src = images/promicro.jpg
@@ -156,9 +156,8 @@ https://www.raspberrypi.org/documentation/rp2040/getting-started
 
 = Troubleshooting of Pro Micro RP2040
   * Logic level (depending on PCB)
-    * Pro Micro RP2040 -> 3.3V
-    * Pro Micro ATMega -> 5V
-    * Just avoid "Gherkin Pro Micro ver."
+    * Pro Micro RP2040 will crash\nif VCC and RAW are connected
+    * Let a geek check the schematic 🤓
   * Shortage of conthrough's height\nif you build an ((*"upside down"*)) type
     * Use XB-3-6-6P on akizukidenshi.com
 
@@ -530,8 +529,8 @@ Essentially\n
    true
 
 = Conclusion
-* PRK Firmware is ((*the world's\nfirst*)) keyboard firmware in Ruby
-* You can not only configure\nbut also extend your keyboard\nby writing ((*`keymap.rb`*)) in ((*Ruby*))
+* PRK Firmware is ((*the world's\nfirst keyboard firmware in Ruby*))
+* You can not only write your keymap\nbut also make your keyboard\n((*more than a keyboard*))
 
 = ((* *))
 (('tag:center'))

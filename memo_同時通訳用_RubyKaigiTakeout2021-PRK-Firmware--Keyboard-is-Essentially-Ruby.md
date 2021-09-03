@@ -4,10 +4,10 @@
 
 Rails
 gem
-Steep
+steep
 Shell
 
-##そのまま発話すればOKな固有名詞
+##そのまま発話すればOKな固有名詞など
 
 Rubygems（ルビージェムズ）
 vim（ヴィム）
@@ -15,24 +15,23 @@ emacs（イーマクス）
 textbringer（テクストブリンガ）
 Git（ギット）
 GitHub（ギットハブ）
-git clone（ギットクローン）
 HID（エイチアイディ）
 GUI（ジーユーアイ）
 CUI（シーユーアイ）
 IRB（アイアールビー）
 GPIO（ジーピーアイオー）
-（）
 
 ## 適切な翻訳がある言葉たち
 
-（スライドには書かれていませんが、口頭でしゃべります）
+（スライドには書かれていないものもありますが、口頭でしゃべります）
 
 角谷さん -> Mr. Kakutani
 （キーボードが）「割れてる」やつ -> Split type
 ラズパイ -> Raspberry Pi（ラズベリーパイ）
-ラズパイピコ -> Raspberry Pi Pico（ラズベリーパイピコ）
-拡張子 -> Extension
+ラズパイピコまたはラズピコ -> Raspberry Pi Pico（ラズベリーパイピコ）
+ラズパイ財団 -> Raspberry Pi Foundation
 マイコン -> Microcontroller
+RP2040（あーるぴーにーぜろよんぜろ） -> RP-twenty-forty
 （Windowsアプリの）メモ帳 -> notepad.exe（ノートパッドエグゼ）
 疑似乱数発生器 -> Pseudo random number generator
 
