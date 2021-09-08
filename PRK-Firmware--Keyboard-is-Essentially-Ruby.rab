@@ -63,7 +63,7 @@
   # relative_height = 103
   # relative_margin_top = 0
 
-= PRK Firmware - How to start [hardware]
+= PRK Firmware - How to start
   * Buy a DIY Keyboard kit
     * Which uses ((*Pro Micro*))
   * Pro Micro?
@@ -79,7 +79,7 @@
 (('tag:right'))
 (('tag:xx-small:https://www.switch-science.com/catalog/3914/'))
 
-= PRK Firmware - How to start [hardware]
+= PRK Firmware - How to start
   * Instead, choose\n((*SPARKFUN PRO MICRO - RP2040*))\n((*[model no. DEV-17717]*))
 
   # image
@@ -91,7 +91,7 @@
 (('tag:right'))\n\n\n
 (('tag:xx-small:https://www.sparkfun.com/products/17717'))
 
-= PRK Firmware - How to start [hardware]
+= PRK Firmware - How to start
   * RP2040?
     * "Raspberry Silicon"
     * Implemented on Raspberry Pi Pico
@@ -106,30 +106,36 @@
 (('tag:right'))\n\n
 (('tag:xx-small:https://pc.watch.impress.co.jp/docs/news/1301670.html'))
 
-= PRK Firmware - How to start [software]
-  * Build environment
-    * macOS, Linux, Windows + WSL
-  * Prerequisites
-    * cmake
-    * github.com/raspberrypi/pico-sdk
+= Troubleshooting of Pro Micro RP2040
+  * Logic level (depending on PCB)
+    * Pro Micro RP2040 will crash\nif VCC and RAW are connected
+    * Ask keyboard lovers to check it 🤓
+  * Shortage of conthrough's height\nif you build an ((*"upside down"*)) type
+    * Use XB-3-6-6P on akizukidenshi.com
 
-= PRK Firmware - How to start [software]
-  # enscript bash
-  $ git clone --recursive https://github.com/picoruby/prk_firmware.git
-  $ cd prk_firmware/keyboards
-  $ git clone https://github.com/picoruby/prk_meishi2.git
-  $ cd prk_meishi2/build
-  $ cmake ../../..    # ../../../CMakeLists.txt
-  $ make
-  $ ls -l prk_firmware.*
-  -rwxr-xr-x (...) prk_firmware.bin
-  -rw-r--r-- (...) prk_firmware.dis
-  -rwxr-xr-x (...) prk_firmware.elf
-  -rw-r--r-- (...) prk_firmware.elf.map
-  -rw-r--r-- (...) prk_firmware.hex
-  -rw-r--r-- (...) prk_firmware.uf2   👈👈👈👈👈👈👈👈👈
+  # image
+  # src = images/shortage.png
+  # align = right
+  # relative-height = 90
+  # relative_margin_left = 9
 
-= PRK Firmware - How to start [software]
+= PRK Firmware - How to start
+  * Ask Rubyists on Twitter
+    * @takkanm
+    * @swan_match
+    * @kakutani
+    * @hasumikin (me), etc.
+  * Join #keyboard in ((*ruby-jp*)) Slack
+
+= PRK Firmware - How to start
+  * wget && gunzip
+
+  通訳さんへ：当日はここにGitHubの画面キャプチャが入ります
+  wget ... ダブリューゲット。ダウンロードの意味です
+  gunzip ... ジーアンジップ。圧縮ファイルを解凍します
+
+
+= PRK Firmware - How to start
   * Connect USB cable while\npressing "boot button"
   * RPI-RP2 will be mounted\nas a storage, then
 
@@ -141,62 +147,28 @@
   # relative_margin_top = -3
 
 (('tag:right'))
-(('tag:xx-small'))\n\n\n\n\n
+(('tag:xx-small'))\n\n\n
 https://www.raspberrypi.org/documentation/rp2040/getting-started
 
-= PRK Firmware - How to start [software]
-  # image
-  # src = images/drag_and_drop_1.png
-  # relative-height = 95
-
-= PRK Firmware - How to start [software]
+= PRK Firmware - How to start
   # image
   # src = images/promicro_rp2040_boot_button.png
   # relative-height = 90
 
-= Troubleshooting of Pro Micro RP2040
-  * Logic level (depending on PCB)
-    * Pro Micro RP2040 will crash\nif VCC and RAW are connected
-    * Let a geek check the schematic 🤓
-  * Shortage of conthrough's height\nif you build an ((*"upside down"*)) type
-    * Use XB-3-6-6P on akizukidenshi.com
-
-  # image
-  # src = images/shortage.png
-  # align = right
-  # relative-height = 90
-  # relative_margin_left = 9
-
-= Troubleshooting of Pro Micro RP2040
-  * You can't push "boot button"\nif it's "upside down"
-    * Have to detach Pro Micro\nevery time flashing a firmware 😫
-
-  # image
-  # src = images/crkbd.jpg
-  # align = right
-  # relative-height = 85
-  # relative_margin_left = 11
-
-= Troubleshooting of Pro Micro RP2040
-  * You can't push "boot button"\nif it's "upside down"
-    * Have to detach Pro Micro\nevery time flashing a firmware 😫
-
-  # image
-  # src = images/crkbd.jpg
-  # align = right
-  # relative-height = 85
-  # relative_margin_left = 11
-
-(('tag:center'))(('tag:large'))
-((*Don't worry, I will have a soluiton!\n(disscussed later)*))
-
 = PRK Firmware - How to start
-  * Ask Rubyists on Twitter
-    * @takkanm
-    * @swan_match
-    * @kakutani
-    * @hasumikin (me), etc.
-  * Join #keyboard in ((*ruby-jp*)) Slack
+  # image
+  # src = images/drag_and_drop_1.png
+  # relative-height = 95
+
+= ((*Automatically mounts!!!!!!!!*))
+\n
+(('tag:xx-large'))  🤩
+
+  # image
+  # align = right
+  # src = images/msc.png
+  # relative-height = 95
+  # relative_margin_left = 5
 
 = e.g.) picoruby/prk_pipigherkin
   * Gherkin for\nthe Raspberry Pi Pico
@@ -246,6 +218,35 @@ https://www.raspberrypi.org/documentation/rp2040/getting-started
     KC_TAB    KC_NO     KC_QUOTE    KC_DQUO   KC_MINUS   KC_GRAVE   KC_TILD   KC_PIPE   KC_COLON  KC_SCOLON
     KC_ESCAPE KC_LGUI   KC_LALT     KC_LCTL   SPC_LOWER  ADJUST     KC_RCTL   KC_RALT   KC_RGUI   KC_RSFT
   )
+
+= ((*Drag & drop -> Automatically reloads!*))
+  # image
+  # src = images/drag_and_drop_2.png
+  # relative-height = 95
+
+= Technology behind PRK Firmware
+  * Compiler and Virtual machine
+  # image
+  # src = images/architecture_1.png
+  # relative_height = 100
+  # relative_margin_top = -4
+
+= Technology behind PRK Firmware
+  * PicoRuby
+    * PicoRuby compiler + mruby/c VM
+    * Ruby Association Grant\nhttps://www.ruby.or.jp/ja/news/20210715
+  # image
+  # src = images/QR_raactivityreport.png
+  # relative_height = 90
+
+= Technology behind PRK Firmware
+  * Static type check by ((*"steep"*)) gem
+    * Super helpful to notice a trivial mistake before\ninstalling an executable into an actual Pro Micro
+
+  $ bundle exec steep check
+  # Type checking files:
+  ......................................................................
+  No type error detected. 🍵
 
 = e.g.) picoruby/prk_crkbd
   # image
@@ -363,48 +364,21 @@ You no longer need to modify .vimrc
   password = Password.new
   kbd.define_mode_key :PASSWD, [ Proc.new { kbd.macro password.generate, [] }, :KC_NO, 300, nil ]
 
-= Technology behind PRK Firmware
-  * Static type check by ((*"steep"*)) gem
-    * Super helpful to notice a trivial mistake before\ninstalling an executable into an actual Pro Micro
-
-  $ cd keyboard/prk_crkbd/build ; make
-  # Type checking files:
-  ......................................................................
-  No type error detected. 🍵
-
-= Technology behind PRK Firmware
-  * PicoRuby compiler
-  # image
-  # src = images/architecture_1.png
-  # relative_height = 100
-  # relative_margin_top = -4
-
-= Technology behind PRK Firmware
-  * Mutitasking of mruby/c VM
-  # image
-  # src = images/Multitasking.png
-  # relative_height = 110
-  # relative_margin_top = -8
-
-= Technology behind PRK Firmware
-  * PicoRuby
-    * PicoRuby compiler + mruby/c VM
-    * Ruby Association Grant\nhttps://www.ruby.or.jp/ja/news/20210715
-  # image
-  # src = images/QR_raactivityreport.png
-  # relative_height = 90
-
 = Future work
-  * Compiling `keymap.rb` on the fly
-    * ((*Drag and drop*)) keymap.rb\n(like CircuitPython)
-    * pico-sdk will be ((*no longer*)) needed
-    * Will solve even the\n((*"boot button issue"*)) 💯
+  * WebUSB serial\n(like Remap)
+  * IoT
+  * Smalruby\nSmalrubot
+  * Education, etc.
 
   # image
-  # src = images/drag_and_drop_2.png
+  # src = images/remap.png
   # align = right
-  # relative-height = 100
-  # relative_margin_left = 3
+  # relative-height = 80
+  # relative_margin_top = -2
+  # relative_margin_left = 15
+
+(('tag:right'))
+(('tag:xx-small:https://remap-keys.app/catalog/gE11SshmfVPRGXEQZ6SC/keymap'))
 
 = ((* *))
 (('tag:center'))\n\n\n
@@ -489,7 +463,7 @@ Copyright © Apple Inc.
 (DEMO)
 
 = PicoRuby Compiler on Board
-  * ((*Sandbox*)) task is never freed!
+  * Multitasking
   # image
   # src = images/Multitasking.png
   # relative_height = 110
