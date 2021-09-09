@@ -48,8 +48,6 @@
 * QMK Firmware ... C
 * KMK Firmware ... Python
 * PRK Firmware ... ((*Ruby*))
-* If you want GUI
-  * VIA, REMAP, Kiibohd Firmware
 
 = Keyboard firmware ... repository
   # image
@@ -108,7 +106,7 @@
 
 = Troubleshooting of Pro Micro RP2040
   * Logic level (depending on PCB)
-    * Pro Micro RP2040 will crash\nif VCC and RAW are connected
+    * Pro Micro RP2040 may crash\nif VCC and RAW are connected
     * Ask keyboard lovers to check it 🤓
   * Shortage of conthrough's height\nif you build an ((*"upside down"*)) type
     * Use XB-3-6-6P on akizukidenshi.com
@@ -126,49 +124,6 @@
     * @kakutani
     * @hasumikin (me), etc.
   * Join #keyboard in ((*ruby-jp*)) Slack
-
-= PRK Firmware - How to start
-  * wget && gunzip
-
-  通訳さんへ：当日はここにGitHubの画面キャプチャが入ります
-  wget ... ダブリューゲット。ダウンロードの意味です
-  gunzip ... ジーアンジップ。圧縮ファイルを解凍します
-
-
-= PRK Firmware - How to start
-  * Connect USB cable while\npressing "boot button"
-  * RPI-RP2 will be mounted\nas a storage, then
-
-  # image
-  # align = right
-  # src = images/boot_button_1.png
-  # relative-height = 83
-  # relative_margin_left = 5
-  # relative_margin_top = -3
-
-(('tag:right'))
-(('tag:xx-small'))\n\n\n
-https://www.raspberrypi.org/documentation/rp2040/getting-started
-
-= PRK Firmware - How to start
-  # image
-  # src = images/promicro_rp2040_boot_button.png
-  # relative-height = 90
-
-= PRK Firmware - How to start
-  # image
-  # src = images/drag_and_drop_1.png
-  # relative-height = 95
-
-= ((*Automatically mounts!!!!!!!!*))
-\n
-(('tag:xx-large'))  🤩
-
-  # image
-  # align = right
-  # src = images/msc.png
-  # relative-height = 95
-  # relative_margin_left = 5
 
 = e.g.) picoruby/prk_pipigherkin
   * Gherkin for\nthe Raspberry Pi Pico
@@ -219,10 +174,61 @@ https://www.raspberrypi.org/documentation/rp2040/getting-started
     KC_ESCAPE KC_LGUI   KC_LALT     KC_LCTL   SPC_LOWER  ADJUST     KC_RCTL   KC_RALT   KC_RGUI   KC_RSFT
   )
 
+= picoruby/prk_firmware/releases
+  # image
+  # src = images/release.png
+  # relative-height = 95
+
+= Install uf2 into RP2040
+  * Connect USB cable while\npressing "boot button"
+  * RPI-RP2 will be mounted\nas a storage, then
+
+  # image
+  # align = right
+  # src = images/boot_button_1.png
+  # relative-height = 83
+  # relative_margin_left = 5
+  # relative_margin_top = -3
+
+(('tag:right'))
+(('tag:xx-small'))\n\n\n
+https://www.raspberrypi.org/documentation/rp2040/getting-started
+
+= Install uf2 into RP2040
+  # image
+  # src = images/promicro_rp2040_boot_button.png
+  # relative-height = 90
+
+= Install uf2 into RP2040
+  # image
+  # src = images/drag_and_drop_1.png
+  # relative-height = 95
+
+= ((*Automatically mounts!!!!!!!!*))
+\n
+(('tag:xx-large'))  🤩
+
+  # image
+  # align = right
+  # src = images/msc.png
+  # relative-height = 95
+  # relative_margin_left = 5
+
 = ((*Drag & drop -> Automatically reloads!*))
   # image
   # src = images/drag_and_drop_2.png
   # relative-height = 95
+
+= ((* *))
+(('tag:x-large'))
+(('tag:center'))
+Unlike QMK Firmware,\n
+You don't need\n
+to ((*compile*))\n
+anything!
+== prop
+: hide-title
+   true
 
 = Technology behind PRK Firmware
   * Compiler and Virtual machine
@@ -238,15 +244,6 @@ https://www.raspberrypi.org/documentation/rp2040/getting-started
   # image
   # src = images/QR_raactivityreport.png
   # relative_height = 90
-
-= Technology behind PRK Firmware
-  * Static type check by ((*"steep"*)) gem
-    * Super helpful to notice a trivial mistake before\ninstalling an executable into an actual Pro Micro
-
-  $ bundle exec steep check
-  # Type checking files:
-  ......................................................................
-  No type error detected. 🍵
 
 = e.g.) picoruby/prk_crkbd
   # image
@@ -364,22 +361,6 @@ You no longer need to modify .vimrc
   password = Password.new
   kbd.define_mode_key :PASSWD, [ Proc.new { kbd.macro password.generate, [] }, :KC_NO, 300, nil ]
 
-= Future work
-  * WebUSB serial\n(like Remap)
-  * IoT
-  * Smalruby\nSmalrubot
-  * Education, etc.
-
-  # image
-  # src = images/remap.png
-  # align = right
-  # relative-height = 80
-  # relative_margin_top = -2
-  # relative_margin_left = 15
-
-(('tag:right'))
-(('tag:xx-small:https://remap-keys.app/catalog/gE11SshmfVPRGXEQZ6SC/keymap'))
-
 = ((* *))
 (('tag:center'))\n\n\n
 (('tag:large:By the way,'))
@@ -406,13 +387,6 @@ the No.1 text editor?*))
 = ((* *))
 (('tag:center'))\n\n\n
 (('tag:large:emacs?'))
-== prop
-: hide-title
-   true
-
-= ((* *))
-(('tag:center'))\n\n\n
-(('tag:large:VSCode?'))
 == prop
 : hide-title
    true
@@ -446,24 +420,12 @@ Copyright © Microsoft
 : hide-title
    true
 
-= ((* *))
-\n\n\n\n
-Copyright © Apple Inc.
-  # image
-  # src = images/textedit.png
-  # align = right
-  # relative-height = 100
-  # relative_margin_left = 10
-== prop
-: hide-title
-   true
-
 = PicoRuby Compiler on Board
 (('tag:center'))\n\n
 (DEMO)
 
 = PicoRuby Compiler on Board
-  * Multitasking
+  * Multitasking of mruby/c
   # image
   # src = images/Multitasking.png
   # relative_height = 110
@@ -501,6 +463,22 @@ Essentially\n
 == prop
 : hide-title
    true
+
+= Future work
+  * WebUSB serial\n(like Remap)
+  * IoT, Robot
+  * Smalruby
+  * mruby Girls
+
+  # image
+  # src = images/remap.png
+  # align = right
+  # relative-height = 80
+  # relative_margin_top = -2
+  # relative_margin_left = 15
+
+(('tag:right'))
+(('tag:xx-small:https://remap-keys.app/catalog/gE11SshmfVPRGXEQZ6SC/keymap'))
 
 = Conclusion
 * PRK Firmware is ((*the world's\nfirst keyboard firmware in Ruby*))
